@@ -1,7 +1,13 @@
 <template>
-  <HelloWorld />
+    <Menu />
 </template>
 
-<script setup>
-  //
+<script>
+import Menu from "@/components/menu/Menu.vue"
+
+export default {
+    components: {
+        Menu,
+    }
+}
 </script>

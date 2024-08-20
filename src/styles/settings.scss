@@ -5,6 +5,18 @@
  */
 
 // https://vuetifyjs.com/features/sass-variables/`
-// @use 'vuetify/settings' with (
-//   $color-pack: false
-// );
+// @use 'vuetify/settings' with ( //   $color-pack: false
+//     $container-max-widths: ('xs': null,
+//         'sm': null,
+//         'md': map.get($grid-breakpoints, 'md') * 0.9375,
+//         'lg': map.get($grid-breakpoints, 'lg') * 0.9375,
+//         'xl': map.get($grid-breakpoints, 'xl') * 0.9375,
+//         'xxl':1500px,
+//     ));
+@use 'vuetify/settings' with ( //   $color-pack: false
+
+    $container-max-widths: ('md':null,
+        'lg':null,
+        'xl':1200px,
+        'xxl':1200px, ),
+);
