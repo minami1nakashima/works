@@ -2,7 +2,7 @@
     <v-app-bar id="app" height="60" flat>
         <v-container class="mx-auto d-flex align-center justify-center">
             <v-btn icon rounded="0">
-                <v-icon>mdi-menu</v-icon>
+                <v-icon :size="SpCheck() ? 'small' : 'medium'">mdi-menu</v-icon>
                 <v-menu activator="parent" icon="bar-nav-icon">
                     <v-list @click:select="clickItem">
                         <v-list-item value="1">
@@ -17,16 +17,14 @@
                     </v-list>
                 </v-menu>
             </v-btn>
-            <v-toolbar-title class="text-h6 ml-2">Go To KOREA</v-toolbar-title>
+            <v-toolbar-title class="ml-2" :class="SpCheck() ? 'text-subtitle-1' : 'text-h6'">Go To
+                KOREA</v-toolbar-title>
             <v-spacer></v-spacer>
-            <v-text-field label="Search" prepend-inner-icon="mdi-magnify" variant="outlined" hide-details single-line
-                max-width="200" density="compact" class="mr-4">
-            </v-text-field>
             <v-btn icon>
-                <v-icon>mdi-heart</v-icon>
+                <v-icon :size="SpCheck() ? 'small' : 'medium'">mdi-heart</v-icon>
             </v-btn>
             <v-btn icon>
-                <v-icon>mdi-dots-vertical</v-icon>
+                <v-icon :size="SpCheck() ? 'small' : 'medium'">mdi-dots-vertical</v-icon>
             </v-btn>
         </v-container>
     </v-app-bar>
@@ -44,6 +42,9 @@ export default {
         },
         onGangneung() {
             this.$router.push('/gangneung')
+        },
+        SpCheck() {
+            return this.$vuetify.display.smAndDown;
         }
     }
 }

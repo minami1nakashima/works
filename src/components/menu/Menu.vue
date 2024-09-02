@@ -2,7 +2,7 @@
     <v-tabs v-model="tab" density="compact" bg-color="light-blue-lighten-5" color="#40C4FF" grow>
         <div width="1200" class="mx-auto">
             <v-tab v-for="item in indexes" :key="item" :text="item" :value="item" boder="xl"
-                class="text-subtitle-2 font-weight-black comfortable">
+                class="font-weight-black comfortable" :class="SpCheck() ? 'text-caption size' : 'text-subtitle-2'">
             </v-tab>
         </div>
     </v-tabs>
@@ -66,6 +66,9 @@ export default {
                     return 'Home';
             }
         },
+        SpCheck() {
+            return this.$vuetify.display.smAndDown;
+        }
     },
 };
 </script>
@@ -75,5 +78,9 @@ export default {
     color: #00a0ea;
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
+}
+
+.size {
+    min-width: auto !important;
 }
 </style>

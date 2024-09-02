@@ -1,23 +1,31 @@
     <template>
-        <v-row class="mx-10">
+        <v-row :class="SpCheck() ? 'mx-1' : 'mx-10'">
             <!-- カルーセル写真 -->
-            <v-col cols="9">
-                <v-carousel height="450" :show-arrows="false" hide-delimiters cycle hide-delimiter-background cover>
-                    <v-carousel-item id="img" v-for="item in items" :key="i" :src="item.src" cover>
-                        <p id="text" class="text-h5 font-weight-bold text-white">{{ item.text }}</p>
+            <v-col>
+                <v-carousel :show-arrows="false" hide-delimiters cycle hide-delimiter-background cover
+                    :height="SmCheck() ? '450' : '200'">
+                    <v-carousel-item v-for="item in homeData.items" :key="item">
+                        <v-img id="img" width="800" :src="item.src" cover>
+                            <!-- 写真内文字 -->
+                            <p id="text" class="font-weight-bold text-white"
+                                :class="SpCheck() ? 'text-caption' : 'text-h5'">{{ item.text }}</p>
+                        </v-img>
                     </v-carousel-item>
                 </v-carousel>
             </v-col>
 
             <!-- カルーセル文章 -->
-            <v-col cols=" 3">
+            <v-col class="d-none d-md-block">
                 <v-carousel height="450" :show-arrows="false" hide-delimiters cycle hide-delimiter-background>
-                    <v-carousel-item v-for="item in slides" :key="item.slide">
-                        <v-card height="480" rounded-xl="2" :color="item.color" flat>
+                    <v-carousel-item v-for="item in homeData.slides" :key="item.slide" class="mx-auto">
+                        <!-- カード -->
+                        <v-card height="450" width="270" rounded="2" :color="item.color" flat>
+                            <!-- カードタイトル -->
                             <v-card-title class="d-flex justify-center mt-15 text-h5 font-weight-black">
                                 {{ item.slide }}
                             </v-card-title>
                             <v-divider class="mx-auto mt-5" length="80%"></v-divider>
+                            <!-- カード説明 -->
                             <v-card-text class="text-caption"
                                 style="white-space:pre-wrap; text-align: center; line-height: 2;">
                                 {{ item.explain }}
@@ -26,195 +34,210 @@
                     </v-carousel-item>
                 </v-carousel>
             </v-col>
-        </v-row>
 
-        <v-row class="mt-15 ma-10">
-            <v-col cols="12">
-                <h2>韓国のあんなこんな</h2>
-                <p class="text-subtitle-1">\ 様々な情報をお伝えします。/</p>
+            <!-- カードコンテンツタイトル -->
+            <v-col cols="12" :class="SpCheck() ? 'pa-0 ml-1' : ''">
+                <p :class="SpCheck() ? 'text-subtitle-2' : 'text-h5'" class="font-weight-black">韓国のあんなこんな</p>
+                <p :class="SpCheck() ? 'text-caption mb-5' : 'text-subtitle-2 mb-5'">\ 様々な情報をお伝えします。/</p>
             </v-col>
 
             <!-- カードコンテンツ -->
-            <v-row>
-                <v-col v-for="item in cards" :key="item.theme">
-                    <v-card id="relative" class="mx-auto mt-5" max-width="240" min-width="240" min-height="280">
-                        <v-img height="150px" :src="item.src" cover></v-img>
-                        <v-card-title>
-                            {{ item.theme }}
-                        </v-card-title>
-                        <p style="white-space:pre-wrap;" class="ml-4 text-body-2">
-                            {{ item.sub }}
-                        </p>
-                        <p id="more" @click=" test(item.theme)" class="text-blue-darken-1 text-right ma-3">
-                            もっと見る
-                        </p>
-                    </v-card>
-                </v-col>
-            </v-row>
+            <v-col v-for="item in homeData.cards" :key="item.theme" class="pa-5">
+                <v-card id="relative" class="mx-auto" :width="SpCheck() ? '' : '240'"
+                    :height="SpCheck() ? '200' : '280'">
+                    <v-img :height="SpCheck() ? '100' : '150'" :src="item.src" cover></v-img>
+                    <v-card-title :class="SpCheck() ? 'text-caption font-weight-black mx-n2' : ''">
+                        {{ item.theme }}
+                    </v-card-title>
+                    <p style="white-space:pre-wrap;" :class="SpCheck() ? 'text-caption ml-2' : 'ml-4 text-body-2'">
+                        {{ item.sub }}
+                    </p>
+                    <!-- クリックでダイアログ表示 -->
+                    <!-- 未対応 -->
+                    <p id="more" @click=" test(item.theme)" :class="SpCheck() ? 'text-caption ma-1' : 'ma-3'"
+                        class="text-blue-darken-1 text-right font-weight-bold">
+                        もっと見る
+                    </p>
+                </v-card>
+            </v-col>
 
-            <!-- カードニュース -->
-            <v-row>
-                <v-col cols="12">
-                    <h2>トップニュース</h2>
-                </v-col>
+            <!-- カードニュースタイトル -->
+            <v-sheet class="bg-grey-lighten-4 mt-15 pa-6 mx-auto">
+                <v-row>
+                    <v-col cols="4" :class="SpCheck() ? '' : 'my-3'">
+                        <p :class="SpCheck() ? 'text-subtitle-2' : 'text-h5'" class="font-weight-black">トップニュース</p>
+                    </v-col>
+                    <v-spacer></v-spacer>
+                    <!-- レイアウト要修正 -->
+                    <!-- 翻訳スイッチ -->
+                    <v-col cols="2">
+                        <v-switch inset density="compact" label="日本語" v-model="japanese"
+                            @change="toJapaneseChange"></v-switch>
+                    </v-col>
+                </v-row>
 
-                <v-col v-for="item in newsItem" :key="item.theme" cols="3" class="mx-auto">
-                    <v-card id="relative" class="mx-auto mt-5" max-width="240" min-width="240" min-height="280">
-                        <v-img height="150px" :src="item.urlToImage" cover></v-img>
-                        <v-card-title>
-                            {{ item.title }}
-                        </v-card-title>
-                        <p style="white-space:pre-wrap;" class="ml-4 text-body-2">
-                            {{ item.description }}
-                        </p>
-                        <p id="more" @click="click(item.url)" class="text-blue-darken-1 text-right ma-3">
-                            もっと見る
-                        </p>
-                    </v-card>
-                </v-col>
-            </v-row>
+                <!-- 写真付きニュース -->
+                <v-row>
+                    <v-col>
+                        <v-card v-if="newsItem" class="mx-auto" :min-width="SpCheck() ? '280' : '450'"
+                            :min-height="SpCheck() ? '240' : '335'" :class="SpCheck() ? 'pb-0' : ''" flat>
+                            <v-img :height="SpCheck() ? '150' : '200'" :src="newsItem.urlToImage" cover></v-img>
+                            <!-- ニュースタイトル（日付＋タイトル） -->
+                            <v-card-title style="white-space:pre-wrap;"
+                                :class="SpCheck() ? 'text-caption font-weight-black mx-n2' : ''">
+                                {{ moment() }} {{ japanese ? newsTitle : newsItem.title }}
+                            </v-card-title>
+                            <!-- ニュースサイトへ画面遷移 -->
+                            <v-btn variant="text" id="more">
+                                <a :href="newsItem.url" style="text-decoration:none;"
+                                    :class="SpCheck() ? 'text-caption' : ''"
+                                    class="text-blue-darken-1 text-right font-weight-bold">もっと見る</a>
+                            </v-btn>
+                        </v-card>
+                    </v-col>
+
+                    <!-- 写真なしニュース -->
+                    <v-col :class="SpCheck() ? 'pt-0' : ''">
+                        <v-list lines="one" class="mx-auto" :min-width="SpCheck() ? '280' : '450'">
+                            <!-- リンク埋め込み -->
+                            <v-list-item v-for="item in newsItemSub" :key="item.url" density="compact" :href="item.url"
+                                class="mx-3">
+                                <!-- ニュースタイトル（日付＋タイトル） -->
+                                <v-list-item-title
+                                    v-text="momentSub(item) + ' ' + (japanese ? item.translatedTitle : item.title)"
+                                    :class="SpCheck() ? 'text-caption ma-0' : ''"></v-list-item-title>
+                                <v-divider></v-divider>
+                            </v-list-item>
+                        </v-list>
+                    </v-col>
+                </v-row>
+            </v-sheet>
         </v-row>
     </template>
 
 <script>
+import homeData from '@/components/home/homeData.js';
 import axios from 'axios'
-import img1 from "@/assets/img/home/gwanghwamun.jpg"
-import img2 from "@/assets/img/home/nseoultower.jpg"
-import img3 from "@/assets/img/home/bukchon_1.jpg"
-import img4 from "@/assets/img/home/Myeongdong.jpg"
-import img5 from "@/assets/img/home/cheonggyecheon.jpg"
-import imgcard1 from "@/assets/img/home/yoptook.jpg"
-import imgcard2 from "@/assets/img/home/ramen.jpg"
-import imgcard3 from "@/assets/img/home/kochujang.jpg"
+import moment from 'moment'
 
 export default {
     data() {
         return {
-            newsItem: [],
-            items: [
-                {
-                    src: img1,
-                    text: '朝鮮時代のシンボル「景福宮」の門',
-                },
-                {
-                    src: img2,
-                    text: '夜の眺望は絶景「Nソウルタワー」',
-                },
-                {
-                    src: img3,
-                    text: '時代劇のセットのような雰囲気',
-                },
-                {
-                    src: img4,
-                    text: '夕方には様々な屋台がずら～り',
-                },
-                {
-                    src: img5,
-                    text: '都心の中の避暑地：暑い夏には川で涼もう',
-                },
-            ],
-            slides: [
-                {
-                    color: 'light-blue-lighten-5',
-                    slide: '光化門',
-                    explain: `\\ 景福宮の城門の遺構 /
-
-周辺には歴史的な建造物や
-銅像、水路など！
-大都市に囲まれ
-まるでタイムスリップした気分に
-夜にはライトアップされ
-幻想的です。`,
-                },
-                {
-                    color: 'deep-orange-lighten-5',
-                    slide: '南山タワー',
-                    explain: `\\ ソウルのシンボル /
-
-南山の頂上にそびえ立つ
-Nソウルタワー
-南山タワーといえばの
-「愛の南京錠」や、
-眺めのよい
-カフェやレストランなど！`,
-                },
-                {
-                    color: 'blue-grey-lighten-5',
-                    slide: '北村韓屋村',
-                    explain: `\\ 韓屋が密集するエリア/
-
-朝鮮時代から残る韓国の伝統家屋
-「韓屋」
-周辺には宮殿「景福宮」や
-韓服のレンタル屋さんも！
-実際に住まわれていて、
-閑静な住宅地なので
-ゆっくりと観光が楽しめます。`,
-                },
-                {
-                    color: 'light-green-lighten-5',
-                    slide: '明洞',
-                    explain: `\\ 定番観光スポット明洞 /
-
-ファッション・コスメ・エステなど
-何でも揃う街です。
-ほとんどのお店で
-日本語が通じることから、
-買い物のしやすさも抜群！
-夕方には屋台が並び
-韓国グルメ食べ歩きも楽しめます。`,
-                },
-                {
-                    color: 'brown-lighten-5',
-                    slide: '清渓川',
-                    explain: `\\ 憩いの人口河川 /
-                    
-市内中心部を流れているので
-アクセス抜群！
-「散歩道」とも呼ばれ、
-散歩しながら休憩がてら
-川沿いのオシャレなカフェでで
-過ごすことができます。`,
-                },
-            ],
-            cards: [
-                {
-                    src: imgcard1,
-                    theme: '激辛好きおすすめ料理',
-                    sub: '韓国で食べられる激辛料理を紹介',
-                },
-                {
-                    src: imgcard2,
-                    theme: '韓国ラーメン特集',
-                    sub: '厳選おすすめ即席ラーメン',
-                },
-                {
-                    src: imgcard3,
-                    theme: 'おすすめ韓国調味料',
-                    sub: '日本人でも食べられる韓国調味料'
-                }
-            ]
+            homeData, // データ別ファイル
+            newsItem: null, // 写真付きニュース配列
+            newsItemSub: [], // ニュース配列
+            newsTitle: '',
+            authKey: 'b04a55fe-e123-414e-9633-43719b64f6e0:fx',
+            japanese: false,
         }
     },
-
-
     methods: {
-        News() {
-            axios.get('https://newsapi.org/v2/top-headlines?q=korea&apiKey=98c82fa89a004667b1cc0687d129f86d')
-                .then(response => {
-                    this.newsItem = response.data.articles;
-                    console.log('news', response.data.articles)
-                })
-                .catch(error => {
-                    console.error(error);
+        // 翻訳スイッチ判断
+        async toJapaneseChange() {
+            if (this.japanese) {
+                await this.Japanese();
+                await this.translateNewsList();
+            } else {
+                this.newsTitle = '';
+                this.newsItemSub.forEach(item => item.translatedTitle = '');
+            }
+        },
+        // 写真付きニュース取得処理
+        async News() {
+            console.log('Newsメソッドが呼び出されました'); // メソッド呼び出しの確認
+            try {
+                const response = await axios.get('https://newsapi.org/v2/top-headlines', {
+                    params: {
+                        q: 'Korea',
+                        sortBy: 'popularity',
+                        apiKey: '98c82fa89a004667b1cc0687d129f86d',
+                    }
                 });
-        }
+                console.log('APIレスポンス:', response); // APIレスポンスの確認
+                this.newsItem = response.data.articles[0];
+                console.log('ニュースアイテム:', this.newsItem); // ニュースアイテムの確認
+                if (this.japanese) {
+                    await this.Japanese();
+                }
+            } catch (error) {
+                console.error('ニュース取得エラー:', error);
+            }
+        },
+        // ニュース取得処理（８個のみ表示）
+        async NewsSub() {
+            try {
+                for (let i = 0; i <= 7; i++) {
+                    const response = await axios.get('https://newsapi.org/v2/everything?q=korea&sortBy=popularity&apiKey=98c82fa89a004667b1cc0687d129f86d');
+                    this.newsItemSub.push(response.data.articles[i]);
+                }
+            } catch (error) {
+                console.error(error);
+            }
+        },
+        // 写真付きニュース翻訳処理
+        async Japanese() {
+            console.log('Japaneseメソッドが呼び出されました'); // メソッド呼び出しの確認
+            try {
+                const response = await axios.post('https://api-free.deepl.com/v2/translate', null, {
+                    params: {
+                        auth_key: this.authKey,
+                        text: this.newsItem.title,
+                        target_lang: 'JA'
+                    },
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    }
+                });
+                console.log('翻訳結果:', response);
+                this.newsTitle = response.data.translations[0].text;
+            } catch (error) {
+                console.error('翻訳エラー:', error);
+            }
+        },
+        // ニュース翻訳処理
+        async translateNewsList() {
+            for (let item of this.newsItemSub) {
+                try {
+                    const response = await axios.post('https://api-free.deepl.com/v2/translate', null, {
+                        params: {
+                            auth_key: this.authKey,
+                            text: item.title,
+                            target_lang: 'JA'
+                        },
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded'
+                        }
+                    });
+                    item.translatedTitle = response.data.translations[0].text;
+                } catch (error) {
+                    console.error('翻訳エラー:', error);
+                }
+            }
+        },
+        // SP画面区別処理
+        SpCheck() {
+            return this.$vuetify.display.smAndDown;
+        },
+        // ipad画面区別処理
+        SmCheck() {
+            return this.$vuetify.display.smAndUp;
+        },
+        // 写真付きニュース日付フォーマット処理
+        moment() {
+            return moment(this.newsItem.publishedAt).format('YYYY-MM-DD')
+        },
+        // ニュース日付フォーマット処理
+        momentSub(item) {
+            return moment(item.publishedAt).format('YYYY-MM-DD');
+        },
     },
     mounted() {
         this.News();
+        this.NewsSub();
     }
 }
 </script>
+
 <style>
 #img {
     border-radius: 4px;

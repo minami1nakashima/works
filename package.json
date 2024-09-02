@@ -1,5 +1,5 @@
 {
-  "name": "projectVue",
+  "name": "projectvue",
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
@@ -10,9 +10,12 @@
   "dependencies": {
     "@fawmi/vue-google-maps": "^0.9.79",
     "@mdi/font": "7.0.96",
-    "axios": "^1.7.3",
+    "axios": "^1.7.5",
     "core-js": "^3.34.0",
     "cors": "^2.8.5",
+    "deepl-node": "^1.13.1",
+    "express": "^4.19.2",
+    "moment": "^2.30.1",
     "newsapi": "^2.4.1",
     "roboto-fontface": "*",
     "vue": "^3.4.0",

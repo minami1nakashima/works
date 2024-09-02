@@ -1,14 +1,17 @@
 <template>
-    <p class="text-h6 font-weight-black ma-10 mt-7">エリア別紹介</p>
-    <!-- カードニュース -->
+    <p class="font-weight-black" :class="SpCheck() ? 'text-subtitle-2 ml-2 mb-3' : 'text-h6 my-7 ml-5'">
+        エリア別紹介</p>
+
     <v-sheet class="mx-10">
-        <CardComp :page="page" :cardItem="items" :classText="classText" :classBtn="classBtn" :go="go"></CardComp>
+        <!-- エリア選択カード -->
+        <CardComp :page="page" :cardItem="items" :SpHeight="SpHeight" :PcHeight="PcHeight"></CardComp>
     </v-sheet>
 </template>
 
 <script>
 import CardComp from "@/components/comp/CardComp.vue"
 
+// エリアイメージ
 import img1 from "@/assets/img/spots/streetfood.jpg"
 import img2 from "@/assets/img/spots/ddp.jpg"
 import img3 from "@/assets/img/spots/bukchon.jpg"
@@ -24,11 +27,10 @@ export default {
     },
     data() {
         return {
-            page: 'Spots',
-            place: "",
-            classText: 'text-light-blue-lighten-3 font-weight-bold',
-            classBtn: 'bg-light-blue-lighten-2 text-white text-body-2 font-weight-black',
-            go: 'エリアを見る',
+            page: 'Spots',//ページの値
+            SpHeight: 170,//SP画面カードコンポーネント高さ
+            PcHeight: 240,//PC画面カードコンポーネント高さ
+            // カード表示データ
             items: [
                 {
                     src: img1,
@@ -38,14 +40,14 @@ export default {
                 },
                 {
                     src: img2,
-                    area: '東大門(乙支路・忠武路)エリア',
+                    area: '東大門エリア',
                     text: 'ファッションの最先端街',
                     component: 'SpotsDongdaemun'
                 },
                 {
                     src: img3,
                     area: '市庁・鐘路エリア',
-                    text: '韓国の歴史を感じされるエリア',
+                    text: '韓国の歴史エリア',
                     component: 'SpotsJongno'
                 },
                 {
@@ -72,11 +74,17 @@ export default {
                 {
                     src: img8,
                     area: '漢江エリア',
-                    text: 'ソウルの街並みを見ながらのんびり',
+                    text: 'ソウルの街並みを一望',
                 },
             ],
         }
     },
+    // SP画面区別処理
+    methods: {
+        SpCheck() {
+            return this.$vuetify.display.smAndDown
+        }
+    }
 }
 </script>
 

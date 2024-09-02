@@ -1,40 +1,48 @@
 <template>
     <v-row>
-        <v-col cols="3" v-for="item in cardItem" :key="item.area">
-            <v-card id="relative" flat min-height="250" class="mb-4">
-                <v-img :src="item.src" cover class="img" height="145px"></v-img>
-                <p class="text-body-1 font-weight-black">
+        <v-col v-for="item in cardItem" :key="item.area" :class="SpCheck() ? 'px-0' : ''">
+            <v-card id="relative" flat :height="SpCheck() ? SpHeight : PcHeight" :width="SpCheck() ? '155' : '240'"
+                class="mb-4 mx-auto">
+                <v-img :src="item.src" cover class="img" :height="SpCheck() ? '100' : '145'"></v-img>
+                <p class="font-weight-black" :class="SpCheck() ? 'text-caption' : 'text-body-1'">
                     {{ item.area }}
                 </p>
-                <p :class="classText" class="my-2">
-                    {{ item.text }}
-                </p>
-                <div v-if="page == 'Hotel'">
+                <div v-if="page == 'Spots'">
+                    <p class="text-light-blue-lighten-3 font-weight-bold" :class="SpCheck() ? 'text-caption' : 'my-2'">
+                        {{ item.text }}
+                    </p>
+                </div>
+                <div v-else="page == 'Hotel'">
+                    <p class="my-2" :class="SpCheck() ? 'text-caption' : 'my-2'">
+                        {{ item.text }}
+                    </p>
                     <p>{{ item.level }}</p>
                     <p>1泊/1部屋￥{{ item.price }}～</p>
                 </div>
-                <v-btn id="more" size="small" :class="classBtn" :text="go" @click="click(item.component)"></v-btn>
+                <v-btn id="more" :size="SpCheck() ? 'x-small' : 'small'"
+                    class="bg-light-blue-lighten-2 text-white font-weight-black"
+                    :class="SpCheck() ? 'text-caption' : 'text-body-2'" text="go"
+                    @click="click(item.component)">詳細を見る</v-btn>
             </v-card>
         </v-col>
     </v-row>
 
-    <div v-if="page == 'Spots'">
-        <v-dialog v-model="dialog" max-width="1300">
+    <v-row v-if="page == 'Spots'">
+        <v-dialog v-model="dialog" max-width="1100">
             <v-card class="pa-5">
 
                 <component :is="dialogComp"></component>
             </v-card>
         </v-dialog>
-    </div>
-    <div v-else>
+    </v-row>
+    <v-row v-else>
         <v-dialog v-model="dialog" max-width="1300">
-            <!-- {{ table()[0].text }} -->
             <v-card class="pa-5">
                 <HotelComp :table="table()" />
 
             </v-card>
         </v-dialog>
-    </div>
+    </v-row>
 </template>
 
 <script>
@@ -42,16 +50,14 @@ import SpotsMyeongdong from "@/components/spots/SpotsMyeongdong.vue"
 import SpotsDongdaemun from "../spots/SpotsDongdaemun.vue";
 import SpotsJongno from "../spots/SpotsJongno.vue";
 import HotelComp from "@/components/hotel/HotelComp.vue";
-import mock from "../hotel/mock";
+import hotelData from "../hotel/hotelData";
 
 export default {
     props: {
         page: String,
+        SpHeight: Number,
+        PcHeight: Number,
         cardItem: Object,
-        classText: String,
-        classBtn: String,
-        go: String,
-        hotelName: String,
     },
     components: {
         SpotsMyeongdong,
@@ -61,7 +67,7 @@ export default {
     },
     data() {
         return {
-            mock,
+            hotelData,
             dialog: false,
             dialogComp: "",
         }
@@ -76,6 +82,9 @@ export default {
                 return value.component == this.dialogComp
             });
             return check[0];
+        },
+        SpCheck() {
+            return this.$vuetify.display.smAndDown;
         }
     }
 }

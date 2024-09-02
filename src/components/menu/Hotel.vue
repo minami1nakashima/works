@@ -1,50 +1,69 @@
 <template>
-    <v-sheet class="mx-10">
-        <!-- ホテル画面概要 -->
-        <p class="text-h6 font-weight-black  my-7">おすすめホテル紹介</p>
-        <v-row class="text-body-2" style="line-height: 2;">
-            <!-- 説明 -->
-            <v-col cols="5" class="mt-5">ソウルには数多くの宿泊エリアがありますが、<br>
-                その中でもおすすめなのが以下の<strong> 5エリア</strong>
-                <!-- エリア表 -->
-                <v-sheet class="bg-light-blue-lighten-5 pa-5 my-4">
-                    <v-list density="compact">
-                        <v-list-item v-for="item in mock.hotelArea" :key="item" :title="item"></v-list-item>
-                    </v-list>
-                </v-sheet>
+    <!-- ホテル画面概要 -->
+    <p class="font-weight-black" :class="SpCheck() ? 'text-subtitle-2 ml-2 mb-3' : 'text-h6 my-7 ml-5'">
+        おすすめホテル紹介
+    </p>
+
+    <v-row class="text-body-2" style="line-height: 2;" :class="SpCheck() ? 'mx-1' : 'mx-10'">
+        <!-- 説明 -->
+        <v-col cols="12" sm="6">
+            <p :class="SpCheck() ? 'text-caption mt-2' : 'mt-5'">
+                ソウルには数多くの宿泊エリアがありますが、<br>
+                その中でもおすすめなのが以下の<strong> 5エリア</strong><br>
                 旅行の目的によっておすすめのエリアも変わってくるので、<br>
                 自分の目的に合ったエリアからホテルを探してみてください。
-            </v-col>
+            </p>
 
-            <!-- エリア地図 -->
-            <v-col>
-                <v-sheet class="bg-grey-lighten-1 ma-auto" width="80%">
-                    <v-img src="@/assets/img/hotel/map.jpg" class="pa-5 mx-auto" width="99%"></v-img>
-                </v-sheet>
-            </v-col>
-        </v-row>
+            <!-- エリア表 -->
+            <div class="bg-light-blue-lighten-5" :class="SmCheck() ? 'pa-3 mt-10' : 'pa-2 mt-2'"
+                :width="SpCheck() ? '350' : '400'">
+                <v-list density="compact" class="pa-0">
+                    <v-list-item v-for="item in hotelData.hotelArea" :key="item">
+                        <v-list-item-title v-text="item" :class="SpCheck() ? 'text-caption pa-0' : 'text-subtitle-2'">
+                        </v-list-item-title>
+                    </v-list-item>
+                </v-list>
+            </div>
+        </v-col>
 
-        <!-- エリアを絞る -->
-        <v-row class="mt-15">
-            <v-col align-self="center">
-                <h4>ホテル一覧表</h4>
-            </v-col>
-            <v-spacer></v-spacer>
-            <v-col>
-                <v-select v-model="select" :items="mock.tableName" multiple variant="underlined" :item-props="itemProps"
-                    width="100%" label="エリアで絞る">
-                </v-select>
-            </v-col>
-            <v-col cols="12">
-                <CardComp :page="page" :cardItem="areaHotel()" :go="go"></CardComp>
-            </v-col>
-        </v-row>
-    </v-sheet>
+        <!-- エリア地図-->
+        <v-col align-self="end">
+            <v-sheet class="bg-grey-lighten-1 mx-auto mb-3" :width="SpCheck() ? '90%' : '75%'">
+                <v-img src="@/assets/img/hotel/map.jpg" class="pa-5 mx-auto" width="99%"></v-img>
+            </v-sheet>
+        </v-col>
+    </v-row>
+
+    <!-- エリアを絞る -->
+    <v-row :class="SpCheck() ? 'mt-5 mx-1' : 'mx-10'">
+        <v-col :align-self="SpCheck() ? 'center' : 'end'" cols="5">
+            <p class="font-weight-black" :class="SpCheck() ? 'text-subtitle-2 ml-2 mb-3' : 'text-h6 my-7 ml-5'">
+                ホテル一覧表
+            </p>
+        </v-col>
+
+        <v-spacer></v-spacer>
+
+        <!-- エリア選択プルダウン -->
+        <v-col align-self="end" cols="4" :class="SpCheck() ? 'mr-3 px-0' : 'mr-10 pt-0'">
+            <v-select v-model="select" :items="hotelData.tableName" autofocus multiple variant="underlined"
+                :density="SpCheck() ? 'compact' : ''" :item-props="itemProps"
+                :class="SpCheck() ? 'select-text-font' : ''" label="エリアで絞る">
+            </v-select>
+        </v-col>
+    </v-row>
+
+    <!-- ホテルカードコンポーネント -->
+    <v-row :class="SpCheck() ? 'mt-5 mx-1' : 'mx-10'">
+        <v-col>
+            <CardComp :page="page" :cardItem="areaHotel()" :SpHeight="SpHeight" :PcHeight="PcHeight"></CardComp>
+        </v-col>
+    </v-row>
 </template>
 
 <script>
 import CardComp from "@/components/comp/CardComp.vue"
-import mock from "@/components/hotel/mock.js"
+import hotelData from "@/components/hotel/hotelData.js"
 
 
 export default {
@@ -53,9 +72,10 @@ export default {
     },
     data() {
         return {
-            mock,
+            hotelData,
             page: 'Hotel',
-            go: '詳細を見る',
+            SpHeight: 230,//SP画面カードコンポーネント高さ
+            PcHeight: 290,//PC画面カードコンポーネント高さ
             select: [],
         }
     },
@@ -74,20 +94,29 @@ export default {
         // バグる
         areaHotel() {
             if (this.select.length === 0) {
-                let selectArea = mock.cardItem
+                let selectArea = hotelData.cardItem
                 return selectArea;
             } else {
-                let selectArea = mock.cardItem.filter(value => this.select.some(table => value.area === table.table))
+                let selectArea = hotelData.cardItem.filter(value => this.select.some(table => value.area === table.table))
                 return selectArea;
             };
-
-        }
+        },
+        // SP画面区別処理
+        SpCheck() {
+            return this.$vuetify.display.smAndDown;
+        },
+        // ipad画面区別処理
+        SmCheck() {
+            return this.$vuetify.display.smAndUp;
+        },
     }
 }
 
 </script>
 
-<style>
+<style lang="scss">
+// scoped
+
 .img {
     border-radius: 5px;
 }
@@ -104,4 +133,27 @@ export default {
 .ex {
     color: rgb(1, 198, 232);
 }
-</style>
+
+.select-text-font {
+    .v-label {
+        margin-top: 5px;
+        font-size: 12px !important;
+    }
+}
+
+.v-overlay-container {
+    .v-list-item-title {
+        font-size: 12px !important;
+    }
+
+    .v-list-item-subtitle {
+        font-size: 12px !important;
+    }
+
+    .v-icon--size-default {
+        font-size: 15px
+    }
+}
+
+
+// mdi v-icon notranslate v-theme--light v-icon--size-default"</style>

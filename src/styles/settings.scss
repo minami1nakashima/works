@@ -15,7 +15,10 @@
 //     ));
 @use 'vuetify/settings' with ( //   $color-pack: false
 
-    $container-max-widths: ('md':null,
+    $container-max-widths: (
+        'xs':null,
+        'sm':null,
+        'md':null,
         'lg':null,
         'xl':1200px,
         'xxl':1200px, ),

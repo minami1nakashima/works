@@ -6,19 +6,17 @@
                 <h3>{{ table.text }}</h3>
                 <p class="text-subtitle-1 text-light-blue-accent-2">{{ table.hotelNameE }}</p>
             </v-col>
-            <v-col>
+            <v-col cols="9">
                 <p class="my-6 font-weight-bold text-body-2">
                     エリア：{{ table.area }}<br>
                     ランク：{{ table.level }}
                 </p>
             </v-col>
+
             <!-- サイトリンク -->
-            <!-- 要場所修正 -->
-            <v-col>
-                <v-btn size="large">
-                    <a :href="table.url">
-                        ホテルサイトへ
-                    </a>
+            <v-col align-self="center">
+                <v-btn size="large" color="deep-orange" class="ml-5 mr-auto">
+                    <a :href="table.url" class="font-weight-bold text-white" style="text-decoration:none;">ホテルサイトへ</a>
                 </v-btn>
 
             </v-col>
@@ -50,7 +48,7 @@
             </p>
 
             <!-- 住所 -->
-            <h4 class="mb-4">ホテル詳細</h4>
+            <!-- <h4 class="mb-4">ホテル詳細</h4> -->
             <v-row class="bg-grey-lighten-2">
                 <v-col cols="7">
                     <v-sheet class="pa-3">
