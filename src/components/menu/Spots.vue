@@ -1,11 +1,13 @@
 <template>
-    <p class="font-weight-black" :class="SpCheck() ? 'text-subtitle-2 ml-2 mb-3' : 'text-h6 my-7 ml-5'">
-        エリア別紹介</p>
+    <div>
+        <p class="font-weight-black" :class="SpCheck() ? 'text-subtitle-2 ml-2 mb-3' : 'text-h6 my-7 ml-5'">
+            エリア別紹介</p>
 
-    <v-sheet class="mx-10">
-        <!-- エリア選択カード -->
-        <CardComp :page="page" :cardItem="items" :SpHeight="SpHeight" :PcHeight="PcHeight"></CardComp>
-    </v-sheet>
+        <v-sheet class="mx-10">
+            <!-- エリア選択カード -->
+            <CardComp :page="page" :cardItem="items" :SpHeight="SpHeight" :PcHeight="PcHeight"></CardComp>
+        </v-sheet>
+    </div>
 </template>
 
 <script>

@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import Menu from "@/components/menu/Menu.vue"
+import Menu from "@/components/Menu.vue"
 
 export default {
     components: {

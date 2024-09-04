@@ -1,11 +1,14 @@
 <template>
+    <!-- 背景色 -->
     <v-tabs v-model="tab" density="compact" bg-color="light-blue-lighten-5" color="#40C4FF" grow>
         <div width="1200" class="mx-auto">
-            <v-tab v-for="item in indexes" :key="item" :text="item" :value="item" boder="xl"
-                class="font-weight-black comfortable" :class="SpCheck() ? 'text-caption size' : 'text-subtitle-2'">
+            <v-tab v-for="item in $t('menuItem')" :key="item" class="font-weight-black comfortable"
+                :class="SpCheck() ? 'text-caption size' : 'text-subtitle-2'">
+                {{ item }}
             </v-tab>
         </div>
     </v-tabs>
+    <!-- 画面内容表示 -->
     <v-container>
         <v-divider class="mt-7 mb-5 mx-auto" length="95%"></v-divider>
         <component :is="getComponent(tab)"></component>
@@ -35,13 +38,14 @@ export default {
     },
     data() {
         return {
-            tab: 'ホーム',
-            indexes: [
-                'ホーム', 'スポット', 'グルメ', '交通', 'ホテル', '飛行機', 'マナー', 'ワード', '季節',
-            ],
+            tab: null,
         };
     },
+    mounted() {
+        console.log("翻訳メニュー", this.$i18n.messages.ja.menuItem); // 追加
+    },
     methods: {
+        // 画面遷移処理
         getComponent(item) {
             switch (item) {
                 case 'ホーム':
@@ -66,6 +70,7 @@ export default {
                     return 'Home';
             }
         },
+        // SP画面区別処理
         SpCheck() {
             return this.$vuetify.display.smAndDown;
         }

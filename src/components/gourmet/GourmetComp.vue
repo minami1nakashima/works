@@ -8,8 +8,6 @@
         <v-card-text class="text-black" :class="SpCheck() ? 'text-caption pa-0 mb-2' : 'text-body-2'">{{ table.sub
             }}👑</v-card-text>
 
-        <!-- SP画面のランキング表示内容要　要検討  -->
-        <!--  -->
         <v-sheet>
             <!-- ランキング表 -->
             <v-data-table :headers="header" :items="table.items" :class="tableSpCheck(table.bgColor)"
@@ -28,10 +26,10 @@
                 </template>
             </v-data-table>
             <!-- ランキング表テキスト -->
-            <p class="text-caption ml-2 mb-3">
-                ※Price,Levelでソートの並び替えができます。<br>
+            <div class="text-caption ml-2 mb-3">
+                <p v-if="tab <= '2'">※Price,Levelでソートの並び替えができます。</p>
                 ※Check Moreをクリックするとお店、または商品の詳細が表示されます。
-            </p>
+            </div>
         </v-sheet>
 
         <!-- コンビニ限定テキスト -->

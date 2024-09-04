@@ -60,7 +60,7 @@
                             <v-col cols="2">住所</v-col>
                             <v-col cols="10">{{ table.address }}</v-col>
                             <v-divider></v-divider>
-                            <v-col cols="2">最寄り駅</v-col>
+                            <v-col cols="2" style="white-space:pre-wrap;">最寄り駅</v-col>
                             <v-col cols="10">{{ table.station }}</v-col>
                             <v-divider></v-divider>
                             <v-col cols="2">TELL</v-col>

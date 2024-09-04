@@ -99,16 +99,19 @@ Nソウルタワー
     //カードニュース
     cards: [
         {
+            component:"1",
             src: imgcard1,
             theme: '激辛好きおすすめ料理',
             sub: '韓国で食べられる激辛料理を紹介',
         },
         {
+            component:"2",
             src: imgcard2,
             theme: '韓国ラーメン特集',
             sub: '厳選おすすめ即席ラーメン',
         },
         {
+            component:"3",
             src: imgcard3,
             theme: 'おすすめ韓国調味料',
             sub: '日本人でも食べられる韓国調味料'
