@@ -1,11 +1,11 @@
-import img1 from "@/assets/img/home/gwanghwamun.jpg"
-import img2 from "@/assets/img/home/nseoultower.jpg"
-import img3 from "@/assets/img/home/bukchon_1.jpg"
-import img4 from "@/assets/img/home/Myeongdong.jpg"
-import img5 from "@/assets/img/home/cheonggyecheon.jpg"
-import imgcard1 from "@/assets/img/home/yoptook.jpg"
-import imgcard2 from "@/assets/img/home/ramen.jpg"
-import imgcard3 from "@/assets/img/home/kochujang.jpg"
+import img1 from "@/assets/Seoul/home/gwanghwamun.jpg"
+import img2 from "@/assets/Seoul/home/nseoultower.jpg"
+import img3 from "@/assets/Seoul/home/bukchon_1.jpg"
+import img4 from "@/assets/Seoul/home/Myeongdong.jpg"
+import img5 from "@/assets/Seoul/home/cheonggyecheon.jpg"
+import imgcard1 from "@/assets/Seoul/home/yoptook.jpg"
+import imgcard2 from "@/assets/Seoul/home/ramen.jpg"
+import imgcard3 from "@/assets/Seoul/home/kochujang.jpg"
 
 export default {     
     // カルーセル写真＋説明  

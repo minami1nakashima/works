@@ -14,14 +14,14 @@
 import CardComp from "@/components/90_comp/CardComp.vue"
 
 // エリアイメージ
-import img1 from "@/assets/img/spots/streetfood.jpg"
-import img2 from "@/assets/img/spots/ddp.jpg"
-import img3 from "@/assets/img/spots/bukchon.jpg"
-import img4 from "@/assets/img/spots/itaewon.jpg"
-import img5 from "@/assets/img/spots/live.jpg"
-import img6 from "@/assets/img/spots/sinchon.jpg"
-import img7 from "@/assets/img/spots/kangnum.jpg"
-import img8 from "@/assets/img/spots/iseoulu.jpg"
+import img1 from "@/assets/Seoul/spots/streetfood.jpg"
+import img2 from "@/assets/Seoul/spots/ddp.jpg"
+import img3 from "@/assets/Seoul/spots/bukchon.jpg"
+import img4 from "@/assets/Seoul/spots/itaewon.jpg"
+import img5 from "@/assets/Seoul/spots/live.jpg"
+import img6 from "@/assets/Seoul/spots/sinchon.jpg"
+import img7 from "@/assets/Seoul/spots/kangnum.jpg"
+import img8 from "@/assets/Seoul/spots/iseoulu.jpg"
 
 export default {
     components: {

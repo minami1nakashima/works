@@ -2,7 +2,7 @@
     <v-sheet>
         <div>
             <p class="text-h6 font-weight-black ma-10 mt-7">韓国 公共交通機関情報</p>
-            <v-img src="@/assets/img/traffic/train.jpg" class="mx-auto" width="60%"></v-img>
+            <v-img src="@/assets/Seoul/traffic/train.jpg" class="mx-auto" width="60%"></v-img>
         </div>
 
         <div>
@@ -19,7 +19,7 @@
         <div>
             <h3>バス</h3>
             <v-divider :thickness="6" color="info" class="my-5"></v-divider>
-            <v-img src="@/assets/img/traffic/bus.jpg"></v-img>
+            <v-img src="@/assets/Seoul/traffic/bus.jpg"></v-img>
             <v-list density="compact">
                 <v-list-item v-for="item in bus_index" :key="item" :title="'・' + item"></v-list-item>
             </v-list>
@@ -38,7 +38,7 @@
 
             <div>
                 <h4>赤いバス</h4>
-                <v-img src="@/assets/img/traffic/red_bus.jpg"></v-img>
+                <v-img src="@/assets/Seoul/traffic/red_bus.jpg"></v-img>
                 <p>赤いバスは広域バスを呼ばれ、主に郊外からソウル市街の職場へ通う人が利用しています。<br>
                     なので、観光で訪れた際にはあまり使わないかもしれません。<br>
                     日本でいう高速バスをイメージすると理解しやすいかも。
@@ -47,7 +47,7 @@
 
             <div>
                 <h4>青いバス</h4>
-                <v-img src="@/assets/img/traffic/blue_bus.jpg"></v-img>
+                <v-img src="@/assets/Seoul/traffic/blue_bus.jpg"></v-img>
                 <p>ソウル市内で一番多く走っているバス<br>
                     1番便利で、利用度が高いバス<br>
                     赤いバスに比べたら走行距離は短いですが、ソウルの端から端までを走行しています。(片道2時間程度の路線)<br>
@@ -60,7 +60,7 @@
 
             <div>
                 <h4>緑のバス</h4>
-                <v-img src="@/assets/img/traffic/maeul.jpg"></v-img>
+                <v-img src="@/assets/Seoul/traffic/maeul.jpg"></v-img>
                 <p>「マウル：村」の規模を走るバス<br>
                     一番日本のバスの感覚に近いです。<br>
                     近場をぐるぐると走るため、地域住民や、お年寄りがたくさん利用しています。<br>
@@ -75,7 +75,7 @@
                 冒頭でも述べましたが、韓国ではGoogleMapがほぼ使い物になりません。<br>
                 細かい道＋交通などの検索ができないです。
             </p>
-            <v-img src="@/assets/img/traffic/never.jpg"></v-img>
+            <v-img src="@/assets/Seoul/traffic/never.jpg"></v-img>
         </div>
     </v-sheet>
 
