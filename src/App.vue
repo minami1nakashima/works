@@ -24,9 +24,4 @@ export default {
 .v-container {
   padding: 0 !important;
 }
-
-#main {
-  margin-top: -40px;
-  padding: 0;
-}
 </style>

@@ -27,7 +27,7 @@
                 <v-icon :size="SpCheck() ? 'small' : 'medium'">mdi-heart</v-icon>
             </v-btn>
             <!-- 言語選択アイコン -->
-            <!-- <v-btn icon>
+            <v-btn icon>
                 <v-icon :size="SpCheck() ? 'small' : 'medium'">mdi-dots-vertical</v-icon>
                 <v-menu activator="parent" icon="bar-nav-icon">
                     <v-list @click:select="clickItem">
@@ -39,7 +39,7 @@
                         </v-list-item>
                     </v-list>
                 </v-menu>
-            </v-btn> -->
+            </v-btn>
         </v-container>
     </v-app-bar>
     <v-divider></v-divider>
@@ -61,9 +61,9 @@ export default {
             this.$router.push('/gangneung')
         },
         // 言語切り替え
-        // changeLanguage(lang) {
-        //     this.$i18n.locale = lang;
-        // },
+        changeLanguage(lang) {
+            this.$i18n.locale = lang;
+        },
         // SP画面区別処理
         SpCheck() {
             return this.$vuetify.display.smAndDown;

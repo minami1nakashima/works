@@ -24,7 +24,7 @@ const routes = [
     component: Index,
   },
   {
-    path: '/',
+    path: '/seoul',
     name: 'seoul',
     component: Index,
   },

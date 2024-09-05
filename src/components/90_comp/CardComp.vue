@@ -52,11 +52,11 @@
 </template>
 
 <script>
-import SpotsMyeongdong from "@/components/spots/SpotsMyeongdong.vue"
-import SpotsDongdaemun from "../spots/SpotsDongdaemun.vue";
-import SpotsJongno from "../spots/SpotsJongno.vue";
-import HotelComp from "@/components/hotel/HotelComp.vue";
-import hotelData from "../hotel/hotelData";
+import SpotsMyeongdong from "@/components/02_spots/SpotsMyeongdong.vue"
+import SpotsDongdaemun from "../02_spots/SpotsDongdaemun.vue";
+import SpotsJongno from "../02_spots/SpotsJongno.vue";
+import HotelComp from "@/components/05_hotel/HotelComp.vue";
+import hotelData from "../05_hotel/hotelData";
 
 export default {
     props: {

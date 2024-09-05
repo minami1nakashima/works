@@ -28,8 +28,8 @@
 </template>
 
 <script>
-import gourmetcomp from "@/components/gourmet/GourmetComp.vue"
-import gourmetData from "@/components/gourmet/gourmetData.js"
+import gourmetcomp from "@/components/03_gourmet/GourmetComp.vue"
+import gourmetData from "@/components/03_gourmet/gourmetData.js"
 
 export default {
     components: {

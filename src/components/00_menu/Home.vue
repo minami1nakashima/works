@@ -126,8 +126,8 @@
     </template>
 
 <script>
-import CardNews from '@/components/home/CardNews.vue';
-import homeData from '@/components/home/homeData.js';
+import CardNews from '@/components/01_home/CardNewsDialog.vue';
+import homeData from '@/components/01_home/homeData.js';
 import axios from 'axios'
 import moment from 'moment'
 

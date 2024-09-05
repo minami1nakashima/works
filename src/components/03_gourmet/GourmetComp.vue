@@ -74,7 +74,7 @@
 </template>
 
 <script>
-import kwangjangmarket from "@/components/gourmet/dialog/kwangjangmarket.vue"
+import kwangjangmarket from "@/components/03_gourmet/dialog/kwangjangmarket.vue"
 
 
 

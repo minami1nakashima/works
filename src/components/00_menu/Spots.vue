@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import CardComp from "@/components/comp/CardComp.vue"
+import CardComp from "@/components/90_comp/CardComp.vue"
 
 // エリアイメージ
 import img1 from "@/assets/img/spots/streetfood.jpg"

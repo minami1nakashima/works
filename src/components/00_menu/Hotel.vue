@@ -65,8 +65,8 @@
 </template>
 
 <script>
-import CardComp from "@/components/comp/CardComp.vue"
-import hotelData from "@/components/hotel/hotelData.js"
+import CardComp from "@/components/90_comp/CardComp.vue"
+import hotelData from "@/components/05_hotel/hotelData.js"
 
 
 export default {
