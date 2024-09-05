@@ -1,5 +1,6 @@
     <template>
         <div>
+            <HomeComp />
             <v-row :class="SpCheck() ? 'mx-1' : 'mx-10'">
                 <!-- カルーセル写真 -->
                 <v-col>
@@ -126,13 +127,16 @@
     </template>
 
 <script>
+import homeComp from '../01_home/homeComp.vue';
 import CardNews from '@/components/01_home/CardNewsDialog.vue';
 import homeData from '@/components/01_home/homeData.js';
 import axios from 'axios'
 import moment from 'moment'
+import HomeComp from '../01_home/homeComp.vue';
 
 export default {
     component: {
+        homeComp,
         CardNews
     },
     data() {

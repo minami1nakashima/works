@@ -14,8 +14,8 @@
 
 import { createRouter, createWebHistory } from 'vue-router'
 import Index from '@/pages/index.vue'
-import Busan from '@/pages/busan.vue'
-import Gangneung from '@/pages/gangneung.vue'
+import Busan from '@/components/70_busan/busan.vue'
+import Gangneung from '@/components/80_gangneung/gangneung.vue'
 
 const routes = [
   {
