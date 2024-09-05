@@ -5,7 +5,7 @@
             <v-btn icon rounded="0">
                 <v-icon :size="SpCheck() ? 'small' : 'medium'">mdi-menu</v-icon>
                 <v-menu activator="parent" icon="bar-nav-icon">
-                    <v-list @click:select="clickItem">
+                    <v-list>
                         <v-list-item value="1">
                             <v-list-item-title @click="onSeoul">Seoul</v-list-item-title>
                         </v-list-item>
@@ -30,7 +30,7 @@
             <v-btn icon>
                 <v-icon :size="SpCheck() ? 'small' : 'medium'">mdi-dots-vertical</v-icon>
                 <v-menu activator="parent" icon="bar-nav-icon">
-                    <v-list @click:select="clickItem">
+                    <v-list>
                         <v-list-item @click="changeLanguage('ja')">
                             <v-list-item-title>Japanese</v-list-item-title>
                         </v-list-item>

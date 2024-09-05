@@ -13,22 +13,17 @@
 // 
 
 import { createRouter, createWebHistory } from 'vue-router'
-import Index from '@/pages/index.vue'
-import Busan from '@/components/70_busan/busan.vue'
-import Gangneung from '@/components/80_gangneung/gangneung.vue'
+import Seoul from '@/components/00_Seoul/Seoul.vue';
+import Busan from '@/components/01_busan/Busan.vue'
+import Gangneung from '@/components/02_gangneung/gangneung.vue'
 
 const routes = [
   {
     path: '/',
-    name: 'index',
-    component: Index,
-  },
-  {
-    path: '/seoul',
     name: 'seoul',
-    component: Index,
+    component: Seoul,
   },
-  {
+    {
     path: '/busan',
     name: 'busan',
     component: Busan,

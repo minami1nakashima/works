@@ -11,6 +11,3 @@ app.use(router);
 registerPlugins(app);
 
 app.mount('#app');
-
-
-console.log(i18n.global.messages);
