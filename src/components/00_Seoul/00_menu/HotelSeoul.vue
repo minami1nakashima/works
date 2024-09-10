@@ -157,6 +157,4 @@ export default {
         font-size: 15px
     }
 }
-
-
-// mdi v-icon notranslate v-theme--light v-icon--size-default"</style>
+</style>

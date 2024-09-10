@@ -1,7 +1,7 @@
 // i18n.js
 import { createI18n } from 'vue-i18n';
-import ja from '@/components/90_comp/local/ja.js';
-import ko from '@/components/90_comp/local/ko.js';
+import ja from '@/components/90_comp/data/ja.js';
+import ko from '@/components/90_comp/data/ko.js';
 
 const messages = {
   ko,  
