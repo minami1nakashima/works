@@ -1,18 +1,37 @@
 <template>
   <div>
-    <v-row>
-      <v-col cols="12" class="text-h6 font-weight-black">
+    <v-row style="height: 600px" no-gutters>
+      <v-col cols="12" class="text-h6 font-weight-black mt-6 mb-8">
         {{ data.Place }}
+        <v-divider
+          class="mt-2 border-opacity-100"
+          :thickness="4"
+          color="red-accent-4"
+        ></v-divider>
       </v-col>
-      <v-col>
-        <v-img :src="data.src" :width="600" aspect-ratio="16/9" contain></v-img>
+      <v-col cols="5">
+        <v-img :src="data.src" width="400" cover></v-img>
       </v-col>
-      <v-col>
-        <p class="my-6 text-body-2" style="white-space: pre-wrap">aa</p>
+      <v-col cols="7" align-self="center">
+        <p class="my-6 text-body-2" style="white-space: pre-wrap">
+          {{ data.text }}
+        </p>
+      </v-col>
+      <v-col cols="12">
+        <v-card class="pa-5 my-10 text-body-2 bg-red-lighten-5">
+          <v-card-title>
+            <span class="mdi mdi-check-decagram-outline"></span>
+            Tips
+          </v-card-title>
+          <v-divider></v-divider>
+          <v-card-text class="text-caption" style="white-space: pre-wrap">
+            {{ data.tip }}
+          </v-card-text>
+        </v-card>
       </v-col>
     </v-row>
     <v-row class="bg-grey-lighten-2">
-      <v-col cols="7">
+      <v-col>
         <v-sheet class="pa-3">
           <v-row>
             <v-col cols="12" class="font-weight-bold">所在地</v-col>

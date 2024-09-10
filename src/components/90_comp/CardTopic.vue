@@ -6,10 +6,10 @@
       :class="SpCheck() ? 'pa-0 ml-5 text-subtitle-2' : 'text-h5'"
       class="font-weight-black"
     >
-      韓国のあんなこんな
+      {{ $t("CardTopic") }}
       <br />
       <span :class="SpCheck() ? 'text-caption mb-5' : 'text-subtitle-2 mb-5'">
-        \ 様々な情報をお伝えします。/
+        {{ $t("CardSubTopic") }}
       </span>
     </v-col>
 

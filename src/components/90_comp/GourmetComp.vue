@@ -74,7 +74,7 @@
           id="relative"
           class="mt-5 mx-auto"
           :width="SpCheck() ? '150' : '240'"
-          :height="SpCheck() ? '180' : '280'"
+          :height="SpCheck() ? '180' : '250'"
         >
           <v-img
             :height="SpCheck() ? '100' : '150'"
@@ -95,7 +95,7 @@
           <!-- クリックでダイアログ表示 -->
           <p
             id="more"
-            @click="text(item.Place)"
+            @click="text(item)"
             class="text-blue-darken-1 text-right ma-3"
           >
             もっと見る
@@ -107,7 +107,7 @@
     <!-- カードダイアログ -->
     <v-dialog v-model="dialog" max-width="1500">
       <v-card class="pa-5">
-        <GourmetCompDialog :data="storename"></GourmetCompDialog>
+        <GourmetCompDialog :data="selectedItem"></GourmetCompDialog>
       </v-card>
     </v-dialog>
   </v-card>
@@ -127,15 +127,14 @@
     data() {
       return {
         dialog: false,
-        place: "",
-        menu: "",
+        selectedItem: {}, // 選択したお店情報
         storename: [], // 選択したお店情報
       };
     },
     methods: {
       // ダイアログ表示切替
-      text(itemPlace) {
-        this.place = itemPlace;
+      text(item) {
+        this.selectedItem = item;
         this.dialog = true;
       },
       // 各タブにあったカードのみ表示
