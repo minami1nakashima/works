@@ -7,14 +7,14 @@
   >
     <!-- ランキングタイトル -->
     <v-card-title
-      class="text-black font-weight-bold"
+      class="fontStyle"
       :class="SpCheck() ? 'text-caption pa-0 mt-1' : 'text-subtitle-1'"
     >
       {{ table.title }}
     </v-card-title>
     <!-- ランキングサブタイトル -->
     <v-card-text
-      class="text-black"
+      class="textFont"
       :class="SpCheck() ? 'text-caption pa-0 mb-2' : 'text-body-2'"
     >
       {{ table.sub }}👑
@@ -28,6 +28,7 @@
         :class="tableSpCheck(table.bgColor)"
         hide-default-footer
         :density="SpCheck() ? 'compact' : 'default'"
+        class="textFont"
       >
         <!-- ランク順位 -->
         <template v-slot:item.Rank="{ index }">

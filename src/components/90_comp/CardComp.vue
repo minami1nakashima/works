@@ -22,7 +22,7 @@
         ></v-img>
         <!-- エリア名 -->
         <p
-          class="font-weight-black"
+          class="TitleFont"
           :class="SpCheck() ? 'text-caption' : 'text-body-1'"
         >
           {{ item.area }}
@@ -30,18 +30,18 @@
         <!-- エリア説明（スポットページのみ表示） -->
         <div v-if="page == 'Spots'">
           <p
-            class="text-light-blue-lighten-3 font-weight-bold"
+            class="text-light-blue-lighten-3 textFont"
             :class="SpCheck() ? 'text-caption' : 'my-2'"
           >
             {{ item.text }}
           </p>
         </div>
         <!-- ホテル名＋値段（ホテルページのみ表示） -->
-        <div v-else="page == 'Hotel'">
-          <p class="my-2" :class="SpCheck() ? 'text-caption' : 'my-2'">
+        <div v-else="page == 'Hotel'" class="textFont">
+          <p class="my-2" :class="SpCheck() ? 'text-caption' : 'mt-2'">
             {{ item.text }}
           </p>
-          <p>{{ item.level }}</p>
+          <p class="mt-n2">{{ item.level }}</p>
           <p>1泊/1部屋￥{{ item.price }}～</p>
         </div>
         <!-- ダイアログ表示ボタン -->

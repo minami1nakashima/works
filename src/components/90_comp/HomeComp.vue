@@ -40,20 +40,20 @@
       >
         <!-- カード -->
         <v-card height="450" width="270" rounded="2" :color="item.color" flat>
-          <!-- カードタイトル -->
-          <v-card-title
-            class="d-flex justify-center mt-15 text-h5 font-weight-black"
-          >
-            {{ $t(item.slideKey) }}
-          </v-card-title>
-          <v-divider class="mx-auto mt-5" length="80%"></v-divider>
-          <!-- カード説明 -->
-          <v-card-text
-            class="text-caption"
-            style="white-space: pre-wrap; text-align: center; line-height: 2"
-          >
-            {{ $t(item.explainKey) }}
-          </v-card-text>
+          <div class="carouselStyle">
+            <!-- カードタイトル -->
+            <v-card-title class="d-flex justify-center mt-15 text-h5 fontStyle">
+              {{ $t(item.slideKey) }}
+            </v-card-title>
+            <v-divider class="mx-auto mt-5" length="80%"></v-divider>
+            <!-- カード説明 -->
+            <v-card-text
+              class="text-caption textStyle"
+              style="white-space: pre-wrap; text-align: center; line-height: 2"
+            >
+              {{ $t(item.explainKey) }}
+            </v-card-text>
+          </div>
         </v-card>
       </v-carousel-item>
     </v-carousel>
@@ -121,6 +121,7 @@
 </script>
 
 <style>
+  @import url("https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap");
   #img {
     border-radius: 4px;
   }
@@ -129,5 +130,28 @@
     position: absolute;
     bottom: 2%;
     left: 2%;
+  }
+  .carouselStyle {
+    border: 4px dashed #fbfbfb;
+    margin: 5px;
+    height: 440px;
+  }
+
+  .fontStyle {
+    font-family: "Mochiy Pop One", sans-serif !important;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  .textStyle::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 155px; /* 下線の位置を調整 */
+    height: 30px; /* 下線の太さを調整 */
+    background-color: #bcbcbc3b; /* 下線の色を設定 */
+    border-radius: 100px; /* 角を丸くする */
+    width: 60%;
   }
 </style>

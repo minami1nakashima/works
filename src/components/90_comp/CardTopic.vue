@@ -3,8 +3,8 @@
     <!-- カードコンテンツタイトル -->
     <v-col
       cols="12"
-      :class="SpCheck() ? 'pa-0 ml-5 text-subtitle-2' : 'text-h5'"
-      class="font-weight-black"
+      :class="SpCheck() ? 'pa-0 ml-5 text-subtitle-2' : 'text-h6'"
+      class="fontStyle"
     >
       {{ $t("CardTopic") }}
       <br />
@@ -14,7 +14,7 @@
     </v-col>
 
     <!-- カードコンテンツ -->
-    <v-col v-for="item in CardTopic.topic" :key="item" class="pa-5">
+    <v-col v-for="item in cardTopics" :key="item.component" class="pa-5">
       <v-card
         id="relative"
         class="mx-auto"
@@ -27,15 +27,16 @@
           cover
         ></v-img>
         <v-card-title
+          class="TitleFont"
           :class="SpCheck() ? 'text-caption font-weight-black mx-n2' : ''"
         >
-          {{ item.title }}
+          {{ $t(item.titleKey) }}
         </v-card-title>
         <p
           style="white-space: pre-wrap"
           :class="SpCheck() ? 'text-caption ml-2' : 'ml-4 text-body-2'"
         >
-          {{ item.sub }}
+          {{ $t(item.subKey) }}
         </p>
         <!-- クリックでダイアログ表示 -->
         <p
@@ -45,14 +46,13 @@
           :class="SpCheck() ? 'text-caption' : 'text-body-2'"
           @click="click(item.component)"
         >
-          もっと見る
+          {{ $t("CardMore") }}
         </p>
       </v-card>
     </v-col>
   </v-row>
 
   <!-- ダイアログ -->
-  <!-- 中身未作成 -->
   <v-dialog v-model="dialog" max-width="1000">
     <v-card>
       <CardNewsDialog :topic="table()" />
@@ -61,8 +61,8 @@
 </template>
 
 <script>
-  import CardTopic from "./data/CardTopic";
-  import CardNewsDialog from "./CardNewsDialog.vue";
+  import { cardTopics } from "@/components/90_comp/data/CardTopic.js";
+  import CardNewsDialog from "@/components/90_comp/CardNewsDialog.vue";
 
   export default {
     components: {
@@ -72,7 +72,7 @@
       return {
         dialog: false,
         dialogComp: "", //ダイアログ切り替え
-        CardTopic,
+        cardTopics,
       };
     },
     methods: {
@@ -83,7 +83,7 @@
       },
       // ダイアログ表示処理
       table() {
-        const topicsArray = Object.values(this.CardTopic.topic);
+        const topicsArray = Object.values(this.cardTopics);
         let check = topicsArray.filter((value) => {
           return value.component == this.dialogComp;
         });
@@ -98,6 +98,7 @@
 </script>
 
 <style>
+  @import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100;300;400;500;700;800;900&display=swap");
   #relative {
     position: relative;
   }
@@ -106,5 +107,18 @@
     position: absolute;
     bottom: 0;
     right: 0;
+  }
+
+  .TitleFont {
+    font-family: "M PLUS Rounded 1c", sans-serif !important;
+    font-weight: 500 !important;
+    font-style: normal;
+    font-size: 18px !important;
+  }
+
+  .textFont {
+    font-family: "M PLUS Rounded 1c", sans-serif !important;
+    font-weight: 400 !important;
+    font-style: normal;
   }
 </style>

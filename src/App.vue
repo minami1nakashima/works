@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <bar />
-    <v-main min-height="1120">
+    <v-main min-height="1230">
       <router-view />
     </v-main>
     <Footer />
@@ -9,19 +9,19 @@
 </template>
 
 <script>
-import bar from "@/components/Appbar.vue"
-import Footer from "@/components/Footer.vue"
+  import bar from "@/components/Appbar.vue";
+  import Footer from "@/components/Footer.vue";
 
-export default {
-  components: {
-    bar,
-    Footer,
-  }
-}
+  export default {
+    components: {
+      bar,
+      Footer,
+    },
+  };
 </script>
 
 <style>
-.v-container {
-  padding: 0 !important;
-}
+  .v-container {
+    padding: 0 !important;
+  }
 </style>

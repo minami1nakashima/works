@@ -1,7 +1,7 @@
 <template>
   <div>
     <p
-      class="font-weight-black"
+      class="fontStyle"
       :class="SpCheck() ? 'text-subtitle-2 ml-2 mb-3' : 'text-h6 my-7 ml-5'"
     >
       K-FOODおすすめ紹介
@@ -16,7 +16,7 @@
             :key="item.page"
             :class="tabSpCheck(item)"
             :value="item.page"
-            class="font-weight-black rounded-t-lg ml-1 border-t-lg border-e-lg border-s-lg"
+            class="textFont rounded-t-lg ml-1 border-t-lg border-e-lg border-s-lg"
             :width="SpCheck() ? '30' : '120'"
             :height="SpCheck() ? '28' : '35'"
           >
