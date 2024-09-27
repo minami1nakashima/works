@@ -118,7 +118,7 @@
         hotelData,
         page: "Hotel",
         SpHeight: 250, //SP画面カードコンポーネント高さ
-        PcHeight: 310, //PC画面カードコンポーネント高さ
+        PcHeight: 270, //PC画面カードコンポーネント高さ
         select: [],
       };
     },

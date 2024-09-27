@@ -19,10 +19,10 @@
         id="relative"
         class="mx-auto"
         :width="SpCheck() ? '' : '240'"
-        :height="SpCheck() ? '200' : '280'"
+        :height="SpCheck() ? '200' : '250'"
       >
         <v-img
-          :height="SpCheck() ? '100' : '150'"
+          :height="SpCheck() ? '100' : '140'"
           :src="item.src"
           cover
         ></v-img>

@@ -36,7 +36,7 @@
   // import Airplane from "@/components/00_Seoul/00_menu/Airplane.vue";
   // import MannersGangneung from "./00_menu/MannersGangneung.vue";
   import WordGangneung from "./00_menu/WordGangneung.vue";
-  // import Season from "@/components/00_Seoul/00_menu/Season.vue";
+  import SeasonGangneung from "./00_menu/SeasonGangneung.vue";
 
   export default {
     components: {
@@ -48,22 +48,12 @@
       // Airplane,
       // MannersGangneung,
       WordGangneung,
-      // Season,
+      SeasonGangneung,
     },
     data() {
       return {
         tab: "Home",
-        tabs: [
-          "Home",
-          "Spots",
-          "Gourmet",
-          "Traffic",
-          "Hotel",
-          "Airplane",
-          "Manners",
-          "Word",
-          "Season",
-        ],
+        tabs: ["Home", "Word", "Season"],
       };
     },
     methods: {

@@ -31,10 +31,10 @@
   import HomeSeoul from "@/components/00_Seoul/00_menu/HomeSeoul.vue";
   import SpotsSeoul from "@/components/00_Seoul/00_menu/SpotsSeoul.vue";
   import GourmetSeoul from "@/components/00_Seoul/00_menu/GourmetSeoul.vue";
-  import TrafficSeoul from "@/components/00_Seoul/00_menu/TrafficSeoul.vue";
+  // import TrafficSeoul from "@/components/00_Seoul/00_menu/TrafficSeoul.vue";
   import HotelSeoul from "@/components/00_Seoul/00_menu/HotelSeoul.vue";
-  import AirplaneSeoul from "@/components/00_Seoul/00_menu/AirplaneSeoul.vue";
-  import MannersSeoul from "@/components/00_Seoul/00_menu/MannersSeoul.vue";
+  // import AirplaneSeoul from "@/components/00_Seoul/00_menu/AirplaneSeoul.vue";
+  // import MannersSeoul from "@/components/00_Seoul/00_menu/MannersSeoul.vue";
   import WordSeoul from "./00_menu/WordSeoul.vue";
   import SeasonSeoul from "@/components/00_Seoul/00_menu/SeasonSeoul.vue";
 
@@ -43,10 +43,10 @@
       HomeSeoul,
       SpotsSeoul,
       GourmetSeoul,
-      TrafficSeoul,
+      // TrafficSeoul,
       HotelSeoul,
-      AirplaneSeoul,
-      MannersSeoul,
+      // AirplaneSeoul,
+      // MannersSeoul,
       WordSeoul,
       SeasonSeoul,
     },
@@ -57,10 +57,10 @@
           "Home",
           "Spots",
           "Gourmet",
-          "Traffic",
+          // "Traffic",
           "Hotel",
-          "Airplane",
-          "Manners",
+          // "Airplane",
+          // "Manners",
           "Word",
           "Season",
         ],

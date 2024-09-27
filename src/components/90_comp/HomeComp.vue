@@ -1,63 +1,79 @@
 <template>
-  <!-- カルーセル写真 -->
-  <v-col>
-    <v-carousel
-      :show-arrows="false"
-      hide-delimiters
-      cycle
-      hide-delimiter-background
-      cover
-      :height="SmCheck() ? '450' : '220'"
-    >
-      <v-carousel-item v-for="item in carouselImg" :key="item.src">
-        <v-img id="img" width="800" :src="item.src" cover>
-          <!-- 写真内文字 -->
-          <p
-            id="text"
-            class="font-weight-bold text-white"
-            :class="SpCheck() ? 'text-caption' : 'text-h5'"
-          >
-            {{ $t(item.textKey) }}
-          </p>
-        </v-img>
-      </v-carousel-item>
-    </v-carousel>
-  </v-col>
+  <div>
+    <!-- カルーセル写真 -->
+    <v-row>
+      <v-col>
+        <v-carousel
+          :show-arrows="false"
+          hide-delimiters
+          cycle
+          hide-delimiter-background
+          cover
+          :height="SmCheck() ? '450' : '220'"
+        >
+          <v-carousel-item v-for="item in carouselImg" :key="item.src">
+            <v-img id="img" width="800" :src="item.src" cover>
+              <!-- 写真内文字 -->
+              <p
+                id="text"
+                class="font-weight-bold text-white"
+                :class="SpCheck() ? 'text-caption' : 'text-h5 fontStyle'"
+              >
+                {{ $t(item.textKey) }}
+              </p>
+            </v-img>
+          </v-carousel-item>
+        </v-carousel>
+      </v-col>
 
-  <!-- カルーセル文章 -->
-  <v-col class="d-none d-md-block">
-    <v-carousel
-      height="450"
-      :show-arrows="false"
-      hide-delimiters
-      cycle
-      hide-delimiter-background
-    >
-      <v-carousel-item
-        v-for="item in carouselText"
-        :key="item.slideKey"
-        class="mx-auto"
-      >
-        <!-- カード -->
-        <v-card height="450" width="270" rounded="2" :color="item.color" flat>
-          <div class="carouselStyle">
-            <!-- カードタイトル -->
-            <v-card-title class="d-flex justify-center mt-15 text-h5 fontStyle">
-              {{ $t(item.slideKey) }}
-            </v-card-title>
-            <v-divider class="mx-auto mt-5" length="80%"></v-divider>
-            <!-- カード説明 -->
-            <v-card-text
-              class="text-caption textStyle"
-              style="white-space: pre-wrap; text-align: center; line-height: 2"
+      <!-- カルーセル文章 -->
+      <v-col class="d-none d-md-block">
+        <v-carousel
+          height="450"
+          :show-arrows="false"
+          hide-delimiters
+          cycle
+          hide-delimiter-background
+        >
+          <v-carousel-item
+            v-for="item in carouselText"
+            :key="item.slideKey"
+            class="mx-auto"
+          >
+            <!-- カード -->
+            <v-card
+              height="450"
+              width="270"
+              rounded="2"
+              :color="item.color"
+              flat
             >
-              {{ $t(item.explainKey) }}
-            </v-card-text>
-          </div>
-        </v-card>
-      </v-carousel-item>
-    </v-carousel>
-  </v-col>
+              <div class="carouselStyle">
+                <!-- カードタイトル -->
+                <v-card-title
+                  class="d-flex justify-center mt-15 text-h5 fontStyle"
+                >
+                  {{ $t(item.slideKey) }}
+                </v-card-title>
+                <v-divider class="mx-auto mt-5" length="80%"></v-divider>
+                <!-- カード説明 -->
+                <v-card-text
+                  class="text-caption textStyle bgCss"
+                  style="
+                    white-space: pre-wrap;
+                    text-align: center;
+                    line-height: 2;
+                  "
+                >
+                  {{ $t(item.explainKey) }}
+                </v-card-text>
+              </div>
+            </v-card>
+          </v-carousel-item>
+        </v-carousel>
+      </v-col>
+    </v-row>
+  </div>
 </template>
 
 <script>
@@ -143,7 +159,7 @@
     font-style: normal;
   }
 
-  .textStyle::after {
+  .bgCss::after {
     content: "";
     position: absolute;
     left: 50%;
@@ -152,6 +168,6 @@
     height: 30px; /* 下線の太さを調整 */
     background-color: #bcbcbc3b; /* 下線の色を設定 */
     border-radius: 100px; /* 角を丸くする */
-    width: 60%;
+    width: 65%;
   }
 </style>

@@ -82,35 +82,35 @@
   }
 
   .id2 {
-    background-color: rgb(248, 227, 205);
+    background-color: rgb(254, 245, 224);
   }
 
   .id3 {
-    background-color: rgb(229, 253, 225);
+    background-color: #eeffd8;
   }
 
   .v-tab-item--selected.id1 {
-    background-color: rgb(117, 190, 254);
+    background-color: rgb(167, 239, 255);
   }
 
   .v-tab-item--selected.id2 {
-    background-color: rgb(254, 174, 113);
+    background-color: rgb(255, 196, 152);
   }
 
   .v-tab-item--selected.id3 {
-    background-color: #c5fd7d;
+    background-color: #deffb3;
   }
 
   .v-card.styleColor1 {
-    border-color: rgb(117, 190, 254) !important;
+    border-color: rgb(231, 249, 253) !important;
   }
 
   .v-card.styleColor2 {
-    border-color: rgb(254, 174, 113) !important;
+    border-color: rgb(254, 245, 224) !important;
   }
 
   .v-card.styleColor3 {
-    border-color: #c5fd7d !important;
+    border-color: #eeffd8 !important;
   }
 
   .bgColor1 {

@@ -16,7 +16,10 @@ export default {
   subRamen: "내가 좋아하는 라면 소개",
   titleCook: "한국 조미료 소개",
   subCook: "일본인이 좋아할것 같은 조미료",
+  titleEvent: "2024축제",
+  subEvent: "즐기고 싶으면 축제에 가자!!",
   CardMore: "더 보기",
+  rateTitle: "오늘의 환율",
   seoulCarouselImgText1: "임금의 큰 덕이 온 나라를 비춘다",
   seoulCarouselImgText2: "야경 맛집 남산타워",
   seoulCarouselImgText3: "역사와 도시의 융합",
@@ -170,4 +173,7 @@ BTS 앨범자켓 사진 속에서
 먹을 거리가 많은 시장입니다.
 KTX 역에서 가깝기 때문에,
 잠깐 가보는 것을 추천합니다`,
+  temperature2mMax: "최고기온",
+  temperature2mMin: "최저기온",
+  precipitationProbabilityMax: "강수확률",
 };

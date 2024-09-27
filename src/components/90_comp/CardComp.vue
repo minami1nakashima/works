@@ -38,11 +38,13 @@
         </div>
         <!-- ホテル名＋値段（ホテルページのみ表示） -->
         <div v-else="page == 'Hotel'" class="textFont">
-          <p class="my-2" :class="SpCheck() ? 'text-caption' : 'mt-2'">
-            {{ item.text }}
-          </p>
-          <p class="mt-n2">{{ item.level }}</p>
-          <p>1泊/1部屋￥{{ item.price }}～</p>
+          <p
+            class="fontStyle"
+            :class="SpCheck() ? 'text-caption' : 'mt-1'"
+            v-html="item.cardHotelName"
+          ></p>
+          <p class="text-subtitle-2">{{ item.level }}</p>
+          <p class="text-subtitle-2">1泊/1部屋￥{{ item.price }}～</p>
         </div>
         <!-- ダイアログ表示ボタン -->
         <v-btn
@@ -68,7 +70,7 @@
   </v-row>
   <!-- ホテルダイアログ表示 -->
   <v-row v-else>
-    <v-dialog v-model="dialog" max-width="1300">
+    <v-dialog v-model="dialog" max-width="1000">
       <v-card class="pa-5">
         <HotelComp :table="table()" />
       </v-card>

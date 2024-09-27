@@ -17,6 +17,9 @@ export default {
   subRamen: "厳選おすすめ即席ラーメン",
   titleCook: "おすすめ韓国調味料",
   subCook: "日本人でも食べられる韓国調味料",
+  titleEvent: "韓国のイベント2024",
+  subEvent: "日本とは少し違う韓国のイベント",
+  rateTitle: "本日の為替レート",
   seoulCarouselImgText1: "朝鮮時代のシンボル「景福宮」の門",
   seoulCarouselImgText2: "夜の眺望は絶景「Nソウルタワー」",
   seoulCarouselImgText3: "時代劇のセットのような雰囲気",
@@ -130,20 +133,20 @@ Nソウルタワー
   gangneungCarouselImgText4: "BTSのアルバム撮影にも使われた海の前のバス停",
   gangneungCarouselImgText5: "市場を代表する「イカスンデ」",
   gangneungCarouselSlide1: "海水浴場",
-  gangneungCarouselExplain1: `\\ 訪れる人を魅了する透き通った海 /
+  gangneungCarouselExplain1: `\\ 魅了される透き通った海 /
 
 カンヌンの海沿いは、どこに出ても
 白い砂浜に透き通った海！
 夏の海水浴はもちろん
-冬は周辺にあるオーシャンビューカフェ
-でも楽しめます。
+冬は周辺にあるオーシャンカフェ
+を楽しめます。
 観光名所はたくさんですが、
 静かに旅行を楽しみたい人に
 おススメのエリア`,
   gangneungCarouselSlide2: "鳥竹軒(オジュッコン)",
   gangneungCarouselExplain2: `\\ 朝鮮王国時代の住宅建築 /
 
-韓国の偉人の生家として知られる場所で、
+韓国の偉人の生家として知られる場所
 500年近くの歴史を持つ観光名所
 敷地はとても広く、
 見ごたえがあります。
@@ -159,18 +162,18 @@ Nソウルタワー
 観光名所となりました。
 ドラマではかなり重要なシーンで
 使われています。
-周辺に同じような防砂提がありますが、
+周辺にいくつか防砂提がありますが、
 ドラマの看板が目印です。`,
   gangneungCarouselSlide4: "香湖海岸 バス停",
   gangneungCarouselExplain4: `\\ (BTSバス停) /
 
-BTSのアルバムロケ地に使われたバス停
+BTSのアルバム撮影に使われたバス停
 元々ジャケット撮影用に
 用意されたバス停であったため
 1度は撤去されてしまいましたが、
-現在は観光用として復元されています。
+現在は観光用として復元。
 今では韓国人の自慢になっているBTS
-海＋バス停の景色もとてもきれいなので
+海＋バス停の景色もとても綺麗なので
 一度は訪れたいスポット`,
   gangneungCarouselSlide5: "中央市場",
   gangneungCarouselExplain5: `\\ 食べ歩きグルメ /
@@ -181,4 +184,7 @@ BTSのアルバムロケ地に使われたバス停
 KTXの駅からの近いため、
 旅行の最終日などにふらっとよるのが
 おススメなスポットです。`,
+  temperature2mMax: "最高気温",
+  temperature2mMin: "最低気温",
+  precipitationProbabilityMax: "降水確率",
 };

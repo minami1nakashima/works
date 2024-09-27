@@ -36,7 +36,7 @@
   // import Airplane from "@/components/00_Seoul/00_menu/Airplane.vue";
   // import MannersBusan from "./00_menu/MannersBusan.vue";
   import WordBusan from "./00_menu/WordBusan.vue";
-  // import Season from "@/components/00_Seoul/00_menu/Season.vue";
+  import SeasonBusan from "./00_menu/SeasonBusan.vue";
 
   export default {
     components: {
@@ -48,7 +48,7 @@
       // Airplane,
       // MannersBusan,
       WordBusan,
-      // Season,
+      SeasonBusan,
     },
     data() {
       return {

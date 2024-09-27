@@ -1,6 +1,7 @@
 import imgcard1 from "@/assets/NewsTopic/yoptook.jpg";
 import imgcard2 from "@/assets/NewsTopic/ramen.jpg";
 import imgcard3 from "@/assets/NewsTopic/kochujang.jpg";
+import imgcard4 from "@/assets/NewsTopic/event.jpg";
 
 import spicy1 from "@/assets/NewsTopic/twumse.jpg";
 import spicy3 from "@/assets/NewsTopic/maepdang.jpg";
@@ -188,6 +189,30 @@ export const cardTopics = [
 一滴でもかなり辛いです！！！取扱注意！！
 辛いのが好きで、何か物足りないときに数滴たらすと、とてもスパイシーになり、おいしいです。
 日本のスーパーなどでは見かけないので、韓国行った際にぜひチェックしてみてください。`,
+      },
+    ],
+  },
+  {
+    component: "4",
+    src: imgcard4,
+    icon: "🎆",
+    titleKey: "titleEvent",
+    subKey: "subEvent",
+    rankTitle: "イベント",
+    text: `韓国のイベントはダイナミック！？
+日本とは少し変わった韓国のイベントを紹介します`,
+    color: "black",
+    bgcolor: "bg-pink",
+    items: [
+      {
+        id: "1",
+        name: "チャンケラーメン / 참깨라면",
+        src: ramen1,
+        rank: "👍👍👍👍",
+        text: `ゴマラーメン
+全く辛くなく、卵とゴマの風味でとてもおいしいです。
+韓国はごま油を使った料理が多いのですが、このラーメンもごま油の香りがします。
+辛いの食べたくない＋さっぱりしたものを食べたいときにオススメです。`,
       },
     ],
   },

@@ -74,25 +74,41 @@
         <v-card
           id="relative"
           class="mt-5 mx-auto"
-          :width="SpCheck() ? '150' : '240'"
+          :width="SpCheck() ? '150' : '220'"
           :height="SpCheck() ? '180' : '250'"
         >
           <v-img
-            :height="SpCheck() ? '100' : '150'"
+            :height="SpCheck() ? '100' : '130'"
             :src="item.src"
             cover
           ></v-img>
           <!-- カードタイトル ごはん・カフェ -->
-          <v-card-title
-            v-if="item.page <= '2'"
-            :class="SpCheck() ? 'text-subtitle-2' : ''"
-          >
-            {{ item.Place }}
-          </v-card-title>
+          <div v-if="item.page <= '2'">
+            <v-card-title
+              :class="
+                SpCheck() ? 'text-subtitle-2' : 'text-subtitle-1 fontStyle'
+              "
+            >
+              {{ item.Place }}
+            </v-card-title>
+            <v-card-text>
+              {{ item.Menu }}
+              <br />
+              {{ item.Price }}
+            </v-card-text>
+          </div>
           <!-- メニュー・商品名 コンビニ-->
-          <v-card-title v-else :class="SpCheck() ? 'text-subtitle-2' : ''">
-            {{ item.Menu }}
-          </v-card-title>
+          <div v-else>
+            <v-card-title :class="SpCheck() ? 'text-subtitle-2' : ''">
+              {{ item.Menu }}
+            </v-card-title>
+            <v-card-text>
+              {{ item.Place }}
+              <br />
+              {{ item.Price }}
+            </v-card-text>
+          </div>
+
           <!-- クリックでダイアログ表示 -->
           <p
             id="more"
@@ -106,7 +122,7 @@
     </v-row>
 
     <!-- カードダイアログ -->
-    <v-dialog v-model="dialog" max-width="1500">
+    <v-dialog v-model="dialog" max-width="1000">
       <v-card class="pa-5">
         <GourmetCompDialog :data="selectedItem"></GourmetCompDialog>
       </v-card>
